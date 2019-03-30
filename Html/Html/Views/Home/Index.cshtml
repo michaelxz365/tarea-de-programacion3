@@ -1,0 +1,45 @@
+﻿@using Html.Models
+@model Class1
+
+@{
+    ViewBag.Title = "formulario";
+}
+<form action="Resultado" method="post">
+    @Html.LabelForModel("Cedula")
+    @Html.TextBoxFor(x => x.cedula, new { @class = "form-control" })
+
+
+    @Html.LabelForModel("Nombre")
+    @Html.TextBoxFor(x => x.nombre, new { @class = "form-control" })
+
+
+
+    @Html.LabelForModel("Apellido")
+    @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
+
+
+    @Html.LabelForModel("Edad")
+    @Html.TextBoxFor(x => x.edad, new { @Class1 = "form-control" })
+    @Html.ValidationMessageFor(p => p.edad)
+
+    @Html.LabelForModel("Telefono")
+    @Html.TextBoxFor(x => x.telefono, new { @class = "form-control" })
+
+    @Html.LabelForModel("Correo")
+    @Html.TextBoxFor(x => x.correo, new { @class = "form-control" })
+
+    @Html.DropDownListFor(m =>m.genero,
+    new SelectList(Enum.GetValues(typeof(Genero))),
+      "seleccional el genero ")
+    @Html.Label("estado:")
+    Casado:@Html.RadioButton("Est", "casado")
+    Soltero:@Html.RadioButton("Est", "soltero")
+    UnionLibre:@Html.RadioButton("Est", "unionlibre")
+    Viudo:@Html.RadioButton("Est", "viudo")
+    @Html.Label("Hobby:")
+    Videojuegos:@Html.CheckBox("Ho", "videojuegos")
+    Leer:@Html.CheckBox("Ho", "leer")
+    Dormir:@Html.CheckBox("Ho", "Dormir")
+    Viudo:@Html.CheckBox("Ho", "viudo")
+    <input type="submit" value="Enviar" />
+</form>
